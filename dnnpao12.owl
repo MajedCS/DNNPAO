@@ -1,0 +1,1658 @@
+@prefix : <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://github.com/MajedCS/DNNPAO> .
+
+<https://github.com/MajedCS/DNNPAO> rdf:type owl:Ontology ;
+                                     owl:versionIRI <https://github.com/MajedCS/DNNPAO> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/2002/07/owl#Accesses
+owl:Accesses rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ;
+             rdfs:range <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Access_Impacts> .
+
+
+###  http://www.w3.org/2002/07/owl#PublishedBy
+owl:PublishedBy rdf:type owl:ObjectProperty ;
+                rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ;
+                rdfs:range <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> .
+
+
+###  http://www.w3.org/2002/07/owl#Targets
+owl:Targets rdf:type owl:ObjectProperty ;
+            rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ;
+            rdfs:range <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> .
+
+
+###  http://www.w3.org/2002/07/owl#Uses
+owl:Uses rdf:type owl:ObjectProperty ;
+         rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ;
+         rdfs:range <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trigger> .
+
+
+###  http://www.w3.org/2002/07/owl#Violates
+owl:Violates rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ;
+             rdfs:range <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation> .
+
+
+###  http://www.w3.org/2002/07/owl#isTypeOf
+owl:isTypeOf rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ;
+             rdfs:range <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack_Vectors> ,
+                        <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacker_knowledge> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> rdf:type owl:DatatypeProperty ;
+                                                                                rdfs:subPropertyOf owl:topDataProperty ;
+                                                                                rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                                rdfs:range xsd:string ;
+                                                                                <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                                <http://purl.org/dc/elements/1.1/date> "2022-07-05T18:20:33Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> rdf:type owl:DatatypeProperty ;
+                                                                         rdfs:subPropertyOf owl:topDataProperty ;
+                                                                         rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                         rdfs:range xsd:integer ;
+                                                                         <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                         <http://purl.org/dc/elements/1.1/date> "2022-07-05T18:14:33Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> rdf:type owl:DatatypeProperty ;
+                                                                          rdfs:subPropertyOf owl:topDataProperty ;
+                                                                          rdfs:domain <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                          rdfs:range xsd:string ;
+                                                                          <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                          <http://purl.org/dc/elements/1.1/date> "2022-07-05T18:22:33Z"^^xsd:dateTime .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Access_Impacts
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Access_Impacts> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf owl:Thing ;
+                                                                                   rdfs:label "Access impacts" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack_Vectors
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack_Vectors> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf owl:Thing ;
+                                                                                   rdfs:comment "This is the Attack Vectors class" ;
+                                                                                   rdfs:label "Attack Vectors" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacker_knowledge
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacker_knowledge> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf owl:Thing ;
+                                                                                       rdfs:label "Attacker knowledge" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf owl:Thing ;
+                                                                            rdfs:label "Attacks" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation> ;
+                                                                                   rdfs:label "Authentication" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> rdf:type owl:Class ;
+                                                                                  rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation> ;
+                                                                                  rdfs:label "Authorization" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation> ;
+                                                                                 rdfs:label "Availability" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack_Vectors> ;
+                                                                              rdfs:label "Backdoors" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacker_knowledge> ;
+                                                                              rdfs:label "Black box" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> ;
+                                                                        rdfs:label "CNN" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Clean_label
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Clean_label> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_Poisoning> ;
+                                                                                rdfs:label "Clean label" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Confidentiality
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Confidentiality> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation> ;
+                                                                                    rdfs:label "Confidentiality" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> ;
+                                                                        rdfs:label "DNN" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DRL
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DRL> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> ;
+                                                                        rdfs:label "DRL" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_Poisoning
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_Poisoning> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Poisoning> ;
+                                                                                   rdfs:label "Data Poisoning" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Access_Impacts> ;
+                                                                                   rdfs:label "Data injection" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Access_Impacts> ;
+                                                                                      rdfs:label "Data manipulation" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_Poisoning> ;
+                                                                                rdfs:label "Dirty label" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Existing
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Existing> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trigger> ;
+                                                                             rdfs:label "Existing" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#FDL
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#FDL> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> ;
+                                                                        rdfs:label "FDL" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#GAN
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#GAN> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> ;
+                                                                        rdfs:label "GAN" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacker_knowledge> ;
+                                                                             rdfs:label "Gray box" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trojans> ;
+                                                                             rdfs:label "Hardware" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation> ;
+                                                                              rdfs:label "Integrity" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visibility> ;
+                                                                              rdfs:label "Invisible" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Access_Impacts> ;
+                                                                                     rdfs:label "Logic corruption" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf owl:Thing ;
+                                                                                       rdfs:label "Model architecture" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Poisoning
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Poisoning> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Poisoning> ;
+                                                                                    rdfs:label "Model Poisoning" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Multiple
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Multiple> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Existing> ;
+                                                                             rdfs:label "Multiple" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Existing> ;
+                                                                        rdfs:label "Non" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Poisoning
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Poisoning> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack_Vectors> ;
+                                                                              rdfs:label "Poisoning" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Privacy
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Privacy> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation> ;
+                                                                            rdfs:label "Privacy" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#RNN
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#RNN> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> ;
+                                                                        rdfs:label "RNN" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#SNN
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#SNN> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Architecture> ;
+                                                                        rdfs:label "SNN" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Security_Violation> rdf:type owl:Class ;
+                                                                                       rdfs:subClassOf owl:Thing ;
+                                                                                       rdfs:label "Security violation" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Existing> ;
+                                                                           rdfs:label "Single" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Software
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Software> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trojans> ;
+                                                                             rdfs:label "Software" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Access_Impacts> ;
+                                                                                      rdfs:label "Transfer learning" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trigger
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trigger> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf owl:Thing ;
+                                                                            rdfs:label "Trigger" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trojans
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trojans> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack_Vectors> ;
+                                                                            rdfs:label "Trojans" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visibility
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visibility> rdf:type owl:Class ;
+                                                                               rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Trigger> ;
+                                                                               rdfs:label "Visibility" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visibility> ;
+                                                                            rdfs:label "Visible" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacker_knowledge> ;
+                                                                              rdfs:label "White box" .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf owl:Thing ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string .
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing rdfs:label "Thing" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack1
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack1> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper1> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack10
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack10> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Multiple> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Privacy> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper9> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack12
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack12> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper10> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack13
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack13> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper11> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack14
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack14> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Multiple> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper12> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack15
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack15> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#RNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper13> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack16
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack16> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Clean_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper14> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack17
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack17> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper15> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack18
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack18> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Software> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper16> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack19
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack19> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper17> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack2
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack2> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper1> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack20
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack20> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Multiple> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Software> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper18> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack21
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack21> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper19> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack22
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack22> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper20> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack23
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack23> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper21> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack24
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack24> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Multiple> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper22> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack25
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack25> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper23> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack26
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack26> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper23> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack27
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack27> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper24> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack28
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack28> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper25> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack29
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack29> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper26> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack3
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack3> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Confidentiality> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Poisoning> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper2> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack30
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack30> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Clean_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper27> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack31
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack31> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper28> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack32
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack32> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper29> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack33
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack33> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper30> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack34
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack34> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper31> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack35
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack35> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper32> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack38
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack38> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Clean_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper35> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack39
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack39> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper36> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack4
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack4> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Confidentiality> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper3> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack40
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack40> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Confidentiality> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper37> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack41
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack41> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Multiple> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper38> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack42
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack42> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper39> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack43
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack43> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#RNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper40> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack44
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack44> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Software> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper41> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack45
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack45> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#RNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper42> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack46
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack46> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Hardware> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#SNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper43> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack47
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack47> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper44> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack48
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack48> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper45> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack49
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack49> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper46> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack5
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack5> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#FDL> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Poisoning> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Privacy> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper4> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack50
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack50> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Software> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper47> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack51
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack51> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper48> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack52
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack52> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#FDL> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper49> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack53
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack53> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Clean_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper50> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack54
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack54> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Dirty_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#FDL> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper51> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack55
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack55> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Confidentiality> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper52> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack6
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack6> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#FDL> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Poisoning> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Privacy> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Transfer_learning> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper5> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack7
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack7> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Software> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper6> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack8
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack8> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authorization> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper7> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack9
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attack9> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Authentication> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DRL> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_manipulation> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Model_Poisoning> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Privacy> ;
+                                                                            owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper8> .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Attack11
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Attack11> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Availability> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Backdoors> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Black_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Gray_box> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Privacy> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Visible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper9> ;
+                                                                             <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                             <http://purl.org/dc/elements/1.1/date> "2022-07-05T20:47:15Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Attack36
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Attack36> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Confidentiality> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#DNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Invisible> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Logic_corruption> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Single> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Software> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper33> ;
+                                                                             <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                             <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:56:59Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Attack37
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Attack37> rdf:type owl:NamedIndividual ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Attacks> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#CNN> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Clean_label> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Data_injection> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Integrity> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#Non> ,
+                                                                                      <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology#White_box> ;
+                                                                             owl:PublishedBy <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper34> ;
+                                                                             <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                             <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:35:37Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper1
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper1> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Li et al"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Invisible Backdoor Attacks on Deep Neural Networks via Steganography and Regularization"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T18:39:15Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper10
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper10> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Liu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Poisoning the (Data) Well in ML-Based CAD: A Case Study of Hiding Lithographic Hotspots"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T21:06:08Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper11
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper11> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Hu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2021 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Practical Attacks on Deep Neural Networks by Memory Trojaning"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T21:12:14Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper12
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper12> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Lin et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Composite Backdoor Attack for Deep Neural Network by Mixing Existing Benign Features"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T21:37:59Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper13
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper13> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Dai et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "A backdoor attack against LSTM-based text classification systems."^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T21:43:23Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper14
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper14> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Zhao et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Clean-Label Backdoor Attacks on Video Recognition Models."^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T21:46:30Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper15
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper15> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Liu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Reflection Backdoor: A Natural Backdoor Attack on Deep Neural Networks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T21:49:47Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper16
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper16> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Chen et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "SPA: Stealthy Poisoning Attack. In ACM Int. Conf. Proceeding Ser"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T21:54:34Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper17
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper17> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Tan et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Bypassing Backdoor Detection Algorithms in Deep Learning"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T21:57:17Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper18
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper18> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Tang et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "An Embarrassingly Simple Approach for Trojan Attack in Deep Neural Networks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:00:13Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper19
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper19> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Wu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2018 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "A security concern about deep learning models"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:03:16Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper2
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper2> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Lee et al"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> """Poisoning attack on show and tell model and defense using
+autoencoder in electric factory"""^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T19:04:43Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper20
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper20> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Barni et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "A New Backdoor Attack in CNNS by Training Set Corruption Without Label Poisoning"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:05:40Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper21
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper21> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Xiong et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Escaping Backdoor Attack Detection of Deep Learning"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:09:10Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper22
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper22> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Kwon et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "TargetNet Backdoor: Attack on Deep Neural Network with Use of Different Triggers"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:13:52Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper23
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper23> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Chen et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Invisible Poisoning: Highly Stealthy Targeted Poisoning Attack"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:18:00Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper24
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper24> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "He et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Embedding backdoors as the facial features: Invisible backdoor attacks against face recognition systems"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:20:23Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper25
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper25> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Xue et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2021 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Backdoors hidden in facial features: a novel invisible backdoor attack against face recognition systems"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:27:24Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper26
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper26> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Yao et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Latent backdoor attacks on deep neural networks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:31:04Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper27
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper27> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Quiring et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Backdooring and poisoning neural networks with image-scaling attacks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:34:13Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper28
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper28> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Bhalerao et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Luminance-based video backdoor attack against anti-spoofing rebroadcast detection"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:36:52Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper29
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper29> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Costales et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Live Trojan Attacks on Deep Neural Networks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:42:23Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper3
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper3> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Dumford and Scheirer"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Backdooring convolutional neural networks via targeted weight perturbations"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T19:24:30Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper30
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper30> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Kwon et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Multi-Targeted Backdoor: Indentifying Backdoor Attack for Multiple Deep Neural Networks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:46:10Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper31
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper31> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Liu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Sequence Triggered Hardware Trojan in Neural Network Accelerator"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:50:23Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper32
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper32> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Rakin et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "TBT: Targeted Neural Network Attack With Bit Trojan"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T22:53:44Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper33
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper33> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Liu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2018 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "A low-cost agile neural Trojan attack methodology"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:00:06Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper34
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper34> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Zhou et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Data Poisoning Attacks on Graph Convolutional Matrix Completion."^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:37:08Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper35
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper35> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Zhu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "ransferable clean-label poisoning attacks on deep neural nets"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:41:23Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper36
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper36> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Gu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "BadNets: Evaluating Backdooring Attacks on Deep Neural Networks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:44:35Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper37
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper37> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Guo et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2021 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "A Master Key backdoor for universal impersonation attack against DNN-based face verification"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:47:19Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper38
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper38> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Clements et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Hardware Trojan Design on Neural Networks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:49:43Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper39
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper39> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Munoz et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2017 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Towards poisoning of deep learning algorithms with back-gradient optimization."^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:52:13Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper4
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper4> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Bhagoji et al"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Analyzing federated learning through an adversarial lens"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T19:29:24Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper40
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper40> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Deep Reinforcement Learning for Partially Observable Data Poisoning Attack in Crowdsensing Systems"^^xsd:string ,
+                                                                                                                                                      "Li et al"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:55:24Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper41
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper41> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Li et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2018 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Hardware and Software Collaborative Attack Framework Against Neural Networks"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-05T23:58:10Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper42
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper42> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Xu et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Adversarial attacks and defenses in images, graphs and text: A review."^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:01:48Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper43
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper43> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Venceslai et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "NeuroAttack: Undermining Spiking Neural Networks Security through Externally Triggered Bit-Flips"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:05:18Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper44
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper44> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Kwon et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Selective Poisoning Attack on Deep Neural Network to Induce Fine-Grained Recognition Error"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:07:33Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper45
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper45> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Cole et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2021 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "A New Facial Authentication Pitfall and Remedy in Web Services"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:10:48Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper46
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper46> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "A Perturbation-Based Causative Attack Against DL Classifiers’ Supply Chain in VANET"^^xsd:string ,
+                                                                                                                                                      "Zeng et al"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:13:26Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper47
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper47> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Pan"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2018 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Poisoning Machine Learning Based Wireless IDSs via Stealing Learning Model"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:15:59Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper48
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper48> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Garofalo et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2018 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Fishy faces: Crafting adversarial images to poison face authentication"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:18:11Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper49
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper49> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Tolpegin et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Data Poisoning Attacks Against Federated Learning Systems"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:20:37Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper5
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper5> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Zhou et al"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2021 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Deep Model Poisoning Attack on Federated Learning"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T19:38:05Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper50
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper50> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Li et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2018 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Poisoning Machine Learning Based Wireless IDSs via Stealing Learning Model"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:22:56Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper51
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper51> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Zhang et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Poisoning Attack in Federated Learning using Generative Adversarial Nets"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:26:05Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper52
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper52> rdf:type owl:NamedIndividual ,
+                                                                                     <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Lovisotto et al"^^xsd:string ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                            <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "A Poisoning Attack Against Unsupervised Template Updating"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                            <http://purl.org/dc/elements/1.1/date> "2022-07-06T00:28:36Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper6
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper6> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Davaslioglu and Sagduyu"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2019 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Trojan Attacks on Wireless Signal Classification with Adversarial Machine Learning"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T19:42:59Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper7
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper7> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Zhong et al"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Backdoor Embedding in Convolutional Neural Network Models via Invisible Perturbation"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T19:47:40Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper8
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper8> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Huai et al"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Malicious Attacks against Deep Reinforcement Learning Interpretations"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T19:54:49Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper9
+<http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Paper9> rdf:type owl:NamedIndividual ,
+                                                                                    <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Papers> ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/AuthorsName> "Xue et al"^^xsd:string ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Date> 2020 ;
+                                                                           <http://www.semanticweb.org/dell/ontologies/2021/9/AttacksOntology/Title> "Machine Learning Security: Threats,Countermeasures, and Evaluations"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/creator> "dell"^^xsd:string ;
+                                                                           <http://purl.org/dc/elements/1.1/date> "2022-07-05T20:52:12Z"^^xsd:dateTime .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
