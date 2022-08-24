@@ -4,7 +4,7 @@ DNNPAO is an ontological knowledge base of poisoning attacks on deep neural netw
 https://www.preprints.org/manuscript/202208.0197/v1.
 
 #  Poisoning Attacks Taxonomy
-[Our extracted a taxonomy](/img/F6.svg)
+![Our extracted a taxonomy](/img/F6.svg)
 
 # Usage
 DNNPAO can be used on different software suge as Protégé or Neo4j.
