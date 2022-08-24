@@ -37,6 +37,14 @@ CALL n10s.onto.import.fetch("https://raw.githubusercontent.com/MajedCS/DNNPAO/ma
 CALL n10s.onto.import.fetch("file:///file path/AttacksOntologyTurtle.ttl","Turtle"); 
 ### For more details please visit : https://neo4j.com/labs/neosemantics/4.0/config/
 
+## SemSpect
+For more exploration tool on Neo4j you can use SemSpect tool. \
+https://www.semspect.de/
+
+### How to cite: 
+
+Altoub, M.; AlQurashi, F.; Yigitcanlar, T.; Corchado, J.; Mehmood, R. An Ontological Knowledge Base of Poisoning Attacks on Deep Neural Networks. Preprints 2022, 2022080197 (doi: 10.20944/preprints202208.0197.v1).
+
 
 
 
