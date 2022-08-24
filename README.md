@@ -31,9 +31,9 @@ ASSERT r.uri IS UNIQUE;
 ### Setting the configuration of the graph:
 CALL n10s.graphconfig.init();
 ### Import the DNNPAO file:
-online : \
+**online :** \
 CALL n10s.onto.import.fetch("https://raw.githubusercontent.com/MajedCS/DNNPAO/main/Ontology/AttacksOntologyTurtle.ttl","Turtle"); \
-or you can download the .ttl file and fetch it locally: \
+**or you can download the .ttl file and fetch it locally:** \
 CALL n10s.onto.import.fetch("file:///file path/AttacksOntologyTurtle.ttl","Turtle"); 
 ### For more details please visit : https://neo4j.com/labs/neosemantics/4.0/config/
 
