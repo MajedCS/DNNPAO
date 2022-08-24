@@ -22,7 +22,7 @@ https://protege.stanford.edu/
 # Neo4j 
 ## Requirements
  Install Neo4j graph database. [2] \
- Install the neosemantics (n10s) plugin. [3] \
+ Install the neosemantics (n10s) plugin. [3] 
 
 ## Cypher:
 ### Create uniqueness constraint:
