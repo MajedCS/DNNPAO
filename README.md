@@ -7,8 +7,6 @@ https://www.preprints.org/manuscript/202208.0197/v1.
 ## Poisoning Attacks Taxonomy
 ![Our extracted a taxonomy](/img/F6.svg)
 
-## DNNPAO Knowledge Base
-![DNNPAO Knowledge Base](/img/DNNPAOKnowledgeBase.svg)
 
 # Usage
 DNNPAO can be used on different software suge as Protégé or Neo4j.\
